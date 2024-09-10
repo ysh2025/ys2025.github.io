@@ -19,7 +19,13 @@
 </head>
     
 <body>
-   
+
+    <p>
+        We perform two alignments, first from red to green then green to blue. To do this, I first downscaled each image, r, g, and b, using the pyramid method. Here, we downscale the image by 1/2 at each layer of the pyramid to generate low resolution images. After downscaling these images, we can then align the images starting from lower resolutions and slowly progressing to higher resolution. To do this, I created a 15x15 pixel window to then iterate through the image and find the best alignment at each level. 
+One thing I struggled with was finding how to determine the best alignment for the images. I ended up going with structural similarity from the scikit library. At first, I wanted to use a metric like norm/MSE on the intensity, but structural similarity works better as it takes into account contrast, saturation, and other metrics. At each level of the pyramid, the offset of the green and blue images was determined by this metric, and the images were stacked together at the end.
+A few issues I ran into was the images being blurry, so I experimented with different sized pixel windows when calculating structural similarity, and adding OpenCV’s gaussian blur function. This function helps with reducing image noise, and slightly blurs the image pixels. This did seem to reduce some of the blurriness of my images. I also tried cropping the images before calling align, and adding more levels to the pyramid.
+
+    </p>
     <h2>cathedral.jpg</h2>
     <img src="./images/cathedral.png">
 
