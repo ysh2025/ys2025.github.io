@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
 
-    <h1>Project 2 - Fun with Filters</h1>
+    <h1>Project 2 - Fun with Filters & Frequencies</h1>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -38,6 +38,10 @@
     <p>To create hybrid images, I combined the low and high frequencies of both images, in this case of the person and the cat. For the high frequency, we can use a gaussian filter, then subtract the resulting image from the original version. To get the low frequency, we can just apply the gaussian filter, then combine both the high and low frequencies. It was interesting to see how both images can look very different from varying distances. The alignment function was first used to ensure both images are aligned on the same axis.</p>
     <p>One issue was experimenting with the parameters (sigma value, kernel size) for each image when creating and applying the gaussian kernel. For high frequencies, a lower sigma value was better, while a higher value was better for low frequency images, so it took some experimentation to get the hybrid image to display. </p>
     <img src="./hybrid_one.png">
+
+    <h2>Part 2.3 - Gaussian & Laplacian stacks </h2>
+
+    <p>In order to blend two images together. we can downsample/blur an image with a gaussian stack, and incrementally increasing the sigma values to get more low-frequency details. This, in combination with laplacian stacks--to take the difference between the levels of the gaussian stack just created--can help blend images together. </p>
     
 
 </body>
