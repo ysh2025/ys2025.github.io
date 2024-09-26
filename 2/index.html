@@ -13,18 +13,31 @@
         img {
             height: 60%;
             max-width: 60%;
-        }
-            
+        }   
     </style>
 </head>
     
 <body>
-  
     <h2>Part 1.1 - Edge detection</h2>
+    <p>For edge detection, we first computed the gradients for the x and y directions: [-1, 1] and its transpose. Then, we convolve the image with the gradients, and calcualte the overall gradient using np.sqrt(dx^2 + dy^2), as shown here: </p>
     <img src="./edge_detection.png">
 
     <h2>Part 1.2 - DoG Filters</h2>
-    <img src="/dog_gradient.png">
+    <p> As we can see, the DoG gradient works much better for edge detection compared to the smooth gradient. By adding a gaussian filter before finding the gradient, it significantly helps reduce noise in the image. We can better detect edges, and combining the techniques allows us to efficiently use one convolution.</p>
+    <img src="./dog_gradient.png">
+
+    <h2>Part 2.1 - Sharpened Images</h2>
+    <p> For sharpening images, we first extracted the low-frequency components of the image, which we get by blurring it. Then, we extract the high frequency parts, like edges, by subtracting the blurred image from the original image. This processed significantly sharpened both the images below.</p>
+    <h3> Taj Mahal sharpened: </h3>
+    <img src="./taj_sharpen.png">
+
+    <h3> Image of a dog sharpened: </h3>
+    <img src="./dog_sharpen.png">
+
+    <h2>Part 2.2 - Hybrid Images</h2>
+    <p>To create hybrid images, I combined the low and high frequencies of both images, in this case of the person and the cat. For the high frequency, we can use a gaussian filter, then subtract the resulting image from the original version. To get the low frequency, we can just apply the gaussian filter, then combine both the high and low frequencies. It was interesting to see how both images can look very different from varying distances. The alignment function was first used to ensure both images are aligned on the same axis.</p>
+    <img src="./hybrid_one.png">
+    
 
 </body>
 </html>
