@@ -19,7 +19,7 @@
     
 <body>
     <h2>Part 1.1 - Edge detection</h2>
-    <p>For edge detection, we first computed the gradients for the x and y directions: [-1, 1] and its transpose. Then, we convolve the image with the gradients, and calcualte the overall gradient using np.sqrt(dx^2 + dy^2), as shown here: </p>
+    <p>For edge detection, we first computed the gradients for the x and y directions: [-1, 1] and its transpose. Then, we convolve the image with the gradients, and calcualte the overall gradient using np.sqrt(dx^2 + dy^2), as shown below. It took some experimenting to get the right threshold value for the edge detection. </p>
     <img src="./edge_detection.png">
 
     <h2>Part 1.2 - DoG Filters</h2>
@@ -36,6 +36,7 @@
 
     <h2>Part 2.2 - Hybrid Images</h2>
     <p>To create hybrid images, I combined the low and high frequencies of both images, in this case of the person and the cat. For the high frequency, we can use a gaussian filter, then subtract the resulting image from the original version. To get the low frequency, we can just apply the gaussian filter, then combine both the high and low frequencies. It was interesting to see how both images can look very different from varying distances. The alignment function was first used to ensure both images are aligned on the same axis.</p>
+    <p>One issue was experimenting with the parameters (sigma value, kernel size) for each image when creating and applying the gaussian kernel. For high frequencies, a lower sigma value was better, while a higher value was better for low frequency images, so it took some experimentation to get the hybrid image to display. </p>
     <img src="./hybrid_one.png">
     
 
