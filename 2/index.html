@@ -29,10 +29,10 @@
     <h2>Part 2.1 - Sharpened Images</h2>
     <p> For sharpening images, we first extracted the low-frequency components of the image, which we get by blurring it. Then, we extract the high frequency parts, like edges, by subtracting the blurred image from the original image. This processed significantly sharpened both the images below.</p>
     <h3> Taj Mahal sharpened: </h3>
-    <img src="./taj_sharpen.png">
+    <img src="./taj_sharpen_full.png">
 
     <h3> Image of a dog sharpened: </h3>
-    <img src="./dog_sharpen.png">
+    <img src="./dog_sharpen_full.png">
 
     <h2>Part 2.2 - Hybrid Images</h2>
     <p>To create hybrid images, I combined the low and high frequencies of both images, in this case of the person and the cat. For the high frequency, we can use a gaussian filter, then subtract the resulting image from the original version. To get the low frequency, we can just apply the gaussian filter, then combine both the high and low frequencies. It was interesting to see how both images can look very different from varying distances. The alignment function was first used to ensure both images are aligned on the same axis.</p>
